@@ -1,0 +1,24 @@
+.dishItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid black;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.dishName {
+  font-weight: bold;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.flex2 {
+  flex: 2;
+}
+
+.flex3 {
+  flex: 3;
+}

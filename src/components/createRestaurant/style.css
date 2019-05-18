@@ -1,0 +1,45 @@
+.createResturantContainer {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #818181;
+  display: block;
+  border: 1px solid #999;
+  margin: 2px;
+}
+
+.createRestaurantInput {
+  display: inline-block;
+  margin: 7px 0px 7px;
+  padding: 10px 20px;
+  width: -webkit-fill-available;
+  border: 2px solid #b7b7b7;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: rgba(252, 252, 252, 1);
+  -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+}
+
+.createRestaurantButton {
+  font-size: 16px;
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  cursor: pointer;
+  margin: 7px 7px 0 0;
+  padding: 10px 20px;
+  width: -webkit-fill-available;
+  border: none;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: rgb(153, 153, 153);
+}
+.createRestaurantButton:hover {
+  background: rgb(255, 255, 255);
+}

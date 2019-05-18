@@ -1,0 +1,9 @@
+.restaurantContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid black;
+  background-color: rgba(112, 112, 112, 0.5);
+  width: 80%;
+  height: 100%;
+}

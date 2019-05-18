@@ -1,0 +1,38 @@
+.adminBody {
+  background: rgb(255, 255, 255);
+}
+
+.flexView {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidebar .restaurantButton {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  border: 1px solid #999;
+  margin: 2px;
+}
+.sidebar .restaurantButton:hover {
+  color: #f1f1f1;
+}
+
+.mainContent {
+  flex: 5;
+  height: 100%;
+  border: 2px solid black;
+}

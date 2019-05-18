@@ -1,0 +1,19 @@
+.infoBox {
+  border: 2px solid black;
+  text-align: center;
+  height: 150px;
+  width: 200px;
+  padding: 10px;
+  background-color: rgba(112, 112, 112, 0.4);
+}
+
+.infoBoxTitle {
+  font-size: 24px;
+}
+
+.infoBoxText {
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}

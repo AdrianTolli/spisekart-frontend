@@ -1,0 +1,30 @@
+.title {
+  text-align: center;
+}
+
+.login {
+  border: 2px solid black;
+  width: fit-content;
+  padding: 1%;
+  float: right;
+  margin: 5%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.homepageImg {
+  border: 2px solid black;
+  width: 100%;
+  height: 600px;
+  background-image: url("https://images.pexels.com/photos/660282/pexels-photo-660282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-position: initial;
+  background-size: 100%;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+}

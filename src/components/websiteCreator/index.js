@@ -47,7 +47,9 @@ class WebsiteCreator extends Component {
           value={this.state.subdomain}
           placeholder="Ditt domene navn"
         />
-        <button onClick={this.createWebsite}>Generer</button>
+        <button className="sidebarButton" onClick={this.createWebsite}>
+          Generer
+        </button>
       </div>
     );
   }

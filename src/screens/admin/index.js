@@ -17,6 +17,7 @@ class Admin extends Component {
     this.fetchAllRestaurants = this.fetchAllRestaurants.bind(this);
     this.updateRestaurants = this.updateRestaurants.bind(this);
     this.onRestaurantClick = this.onRestaurantClick.bind(this);
+    this.logOut = this.logOut.bind(this);
   }
 
   fetchAllRestaurants() {
@@ -49,6 +50,13 @@ class Admin extends Component {
     console.log(e);
   }
 
+  logOut() {
+    localStorage.removeItem("token");
+    this.setState({
+      token: ""
+    });
+  }
+
   render() {
     if (!this.state.token) {
       return <Redirect to="/" />;
@@ -68,17 +76,25 @@ class Admin extends Component {
       <div className="adminBody height100">
         <div className="flexView height100">
           <div className="sidebar">
-            <Sidebar
-              restaurants={this.state.restaurants}
-              onRestaurantClick={this.onRestaurantClick}
-            />
+            <div>
+              <Sidebar
+                restaurants={this.state.restaurants}
+                onRestaurantClick={this.onRestaurantClick}
+              />
+
+              <div>
+                <CreateRestaurant
+                  titleText="Legg til en ny resturant:"
+                  className="createResturantContainer"
+                  updateRestaurants={this.updateRestaurants}
+                />
+              </div>
+            </div>
 
             <div>
-              <CreateRestaurant
-                titleText="Legg til en ny resturant:"
-                className="createResturantContainer"
-                updateRestaurants={this.updateRestaurants}
-              />
+              <button onClick={this.logOut} className="sidebarButton">
+                Logg ut
+              </button>
             </div>
           </div>
           <div className="mainContent">

@@ -105,10 +105,10 @@ class Dish extends Component {
             {this.props.dish.allergens.map(allergen => allergen.name)}
           </div>
           <div className="editButtons">
-            <button className="editButton" onClick={this.editHandler}>
+            <button className="" onClick={this.editHandler}>
               {this.state.editButton}
             </button>
-            <button className="editButton" onClick={this.deleteHandler}>
+            <button className="" onClick={this.deleteHandler}>
               X
             </button>
           </div>

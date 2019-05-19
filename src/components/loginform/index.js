@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import UserMessage from "../usermessage";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import "./style.css";
+import { longStackSupport } from "q";
 
 class LoginForm extends Component {
   constructor() {
@@ -11,7 +12,7 @@ class LoginForm extends Component {
       password: "",
       userMessage: "",
       error: false,
-      isLoggedIn: false
+      isLoggedIn: localStorage.getItem("token") ? true : false
     };
     this.inputHandler = this.inputHandler.bind(this);
     this.registerUser = this.registerUser.bind(this);
@@ -76,12 +77,7 @@ class LoginForm extends Component {
 
   render() {
     if (this.state.isLoggedIn) {
-      return (
-        <div>
-          You are allready logged in
-          <Link to="/admin">Admin</Link>
-        </div>
-      );
+      return <Redirect to="/admin" />;
     }
     return (
       <div>

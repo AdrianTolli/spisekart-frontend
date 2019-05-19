@@ -42,7 +42,9 @@ class Restaurant extends Component {
             updateRestaurants={this.props.updateRestaurants}
           />
         ) : (
-          <button onClick={this.addNewDish}>Legg til ny rett</button>
+          <button className="sidebarButton" onClick={this.addNewDish}>
+            Legg til ny rett
+          </button>
         )}
 
         {this.props.restaurant.website != null ? null : (

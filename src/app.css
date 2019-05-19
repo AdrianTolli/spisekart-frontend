@@ -13,3 +13,21 @@ body {
 .height100 {
   height: 100%;
 }
+
+.sidebarButton {
+  margin: 6px auto;
+  padding: 6px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  border: none;
+  border-radius: 2px;
+  background: #1d2d44;
+  color: #f0ebd8;
+  transition: all 0.25s ease;
+}
+.sidebarButton:hover {
+  background: #f0ebd8;
+  color: #1d2d44;
+}

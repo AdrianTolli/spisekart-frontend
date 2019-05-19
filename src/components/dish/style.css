@@ -1,24 +1,32 @@
-.dishItem {
+.dishes {
+  max-width: 600px;
+  padding: 14px;
+}
+
+.dish {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border: 1px solid black;
-  width: 100%;
-  margin-bottom: 8px;
+  align-items: center;
+}
+.dishInfoContainer {
+  flex-grow: 1;
+}
+.priceContainer {
+  width: 70px;
 }
 
 .dishName {
-  font-weight: bold;
+  font-size: 24px;
+  font-family: "Maiden Orange", cursive;
 }
 
-.flex1 {
-  flex: 1;
+.allergens {
+  font-size: 12px;
 }
 
-.flex2 {
-  flex: 2;
+.editButtons {
+  text-align: right;
 }
 
-.flex3 {
-  flex: 3;
+.editButton {
+  margin: 5px;
 }

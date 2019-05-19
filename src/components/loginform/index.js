@@ -101,7 +101,7 @@ class LoginForm extends Component {
         <br />
         <input
           className="input"
-          type="text"
+          type="password"
           placeholder="Password"
           name="password"
           value={this.state.value}

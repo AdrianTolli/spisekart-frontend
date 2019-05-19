@@ -36,21 +36,24 @@ class CreateRestaurant extends Component {
 
   render() {
     return (
-      <div className="createResturantContainer">
-        <h4>Legg til en ny resturant:</h4>
+      <div className={this.props.className}>
         <input
           className="createRestaurantInput"
           type="text"
-          placeholder="Resturant navn"
+          placeholder="Legg til ny"
           name="restaurantName"
           value={this.state.restaurantName}
           onChange={this.inputHandler}
         />
         <br />
+
         <input
-          className="createRestaurantButton"
+          className={
+            "createRestaurantButton " +
+            (this.state.restaurantName != "" ? "active" : "")
+          }
           type="submit"
-          value="Legg til resturant"
+          value="Legg til"
           onClick={this.addRestaurant}
         />
       </div>

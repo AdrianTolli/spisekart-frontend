@@ -32,6 +32,15 @@ class WebsiteCreator extends Component {
   render() {
     return (
       <div>
+        <div>
+          For å opprette din spisekart-nettside, må du velge et domene navn i
+          feltet under, og trykke generer.
+        </div>
+        <div>
+          Ditt domene-navn blir{" "}
+          {this.state.subdomain ? this.state.subdomain : "[Det du velger]"}
+          .spisekart.com
+        </div>
         <input
           type="text"
           onChange={this.editSubdomain}

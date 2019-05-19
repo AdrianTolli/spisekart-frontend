@@ -1,0 +1,23 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+  background-color: #3e5c76;
+  color: #f0ebd8;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidebar .restaurantButton {
+  padding: 6px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  border-bottom: 1px solid #f0ebd8;
+  transition: all 0.25s ease;
+}
+.sidebar .restaurantButton:hover {
+  color: #3e5c76;
+  background-color: #f0ebd8;
+}

@@ -1,45 +1,46 @@
-.createResturantContainer {
+.noResturantContainer {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 18px;
-  color: #818181;
+  color: #000000;
   display: block;
   border: 1px solid #999;
-  margin: 2px;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.createResturantContainer {
 }
 
 .createRestaurantInput {
   display: inline-block;
-  margin: 7px 0px 7px;
-  padding: 10px 20px;
-  width: -webkit-fill-available;
-  border: 2px solid #b7b7b7;
-  -webkit-border-radius: 30px;
-  border-radius: 30px;
-  -o-text-overflow: clip;
-  text-overflow: clip;
-  background: rgba(252, 252, 252, 1);
-  -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  padding: 0;
+  height: 50px;
+  border: none;
+  text-indent: 6px;
+  background: #f0ebd8;
+  color: #3e5c76;
+}
+.createRestaurantButton.active {
+  opacity: 1;
 }
 
 .createRestaurantButton {
-  font-size: 16px;
-  display: inline-block;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  cursor: pointer;
-  margin: 7px 7px 0 0;
-  padding: 10px 20px;
-  width: -webkit-fill-available;
+  opacity: 0;
+  margin: 6px auto;
+  padding: 6px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
   border: none;
-  -webkit-border-radius: 30px;
-  border-radius: 30px;
-  -o-text-overflow: clip;
-  text-overflow: clip;
-  background: rgb(153, 153, 153);
+  border-radius: 2px;
+  background: #1d2d44;
+  color: #f0ebd8;
+  transition: all 0.25s ease;
 }
 .createRestaurantButton:hover {
-  background: rgb(255, 255, 255);
+  background: #f0ebd8;
+  color: #1d2d44;
 }

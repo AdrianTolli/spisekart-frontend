@@ -5,6 +5,20 @@ import WebsiteCreator from "../websiteCreator";
 import "./style.css";
 
 class Restaurant extends Component {
+  constructor() {
+    super();
+    this.state = {
+      addingNew: false
+    };
+    this.addNewDish = this.addNewDish.bind(this);
+  }
+
+  addNewDish() {
+    this.setState({
+      addingNew: true
+    });
+  }
+
   render() {
     console.log(this.props.restaurant);
     if (!this.props.restaurant) {
@@ -13,16 +27,24 @@ class Restaurant extends Component {
     return (
       <div className="restaurantContainer">
         <div>
-          <h1>{this.props.restaurant.name}</h1>
-          <h3>Spisekart:</h3>
+          <h1 className="restuarantTitle">{this.props.restaurant.name}</h1>
           {this.props.restaurant.dishes.map(dish => (
-            <Dish dish={dish} key={dish.id} />
+            <Dish
+              updateRestaurants={this.props.updateRestaurants}
+              dish={dish}
+              key={dish.id}
+            />
           ))}
         </div>
-        <CreateDish
-          restaurantId={this.props.restaurant.id}
-          updateRestaurants={this.props.updateRestaurants}
-        />
+        {this.state.addingNew ? (
+          <CreateDish
+            restaurantId={this.props.restaurant.id}
+            updateRestaurants={this.props.updateRestaurants}
+          />
+        ) : (
+          <button onClick={this.addNewDish}>Legg til ny rett</button>
+        )}
+
         {this.props.restaurant.website != null ? null : (
           <WebsiteCreator restaurantId={this.props.restaurant.id} />
         )}

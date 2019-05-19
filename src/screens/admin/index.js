@@ -55,9 +55,12 @@ class Admin extends Component {
     }
     if (this.state.restaurants.length === 0) {
       return (
-        <div>
-          Du har ingen restauranter enda
-          <CreateRestaurant updateRestaurants={this.updateRestaurants} />
+        <div className="noResturantBody height100">
+          <CreateRestaurant
+            titleText="Legg til din første resturant:"
+            className="noResturantContainer"
+            updateRestaurants={this.updateRestaurants}
+          />
         </div>
       );
     }
@@ -71,7 +74,11 @@ class Admin extends Component {
             />
 
             <div>
-              <CreateRestaurant updateRestaurants={this.updateRestaurants} />
+              <CreateRestaurant
+                titleText="Legg til en ny resturant:"
+                className="createResturantContainer"
+                updateRestaurants={this.updateRestaurants}
+              />
             </div>
           </div>
           <div className="mainContent">

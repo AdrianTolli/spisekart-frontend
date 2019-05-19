@@ -15,6 +15,16 @@ class CreateDish extends Component {
     this.inputHandler = this.inputHandler.bind(this);
     this.addDish = this.addDish.bind(this);
     this.allergyChange = this.allergyChange.bind(this);
+    this.resetValues = this.resetValues.bind(this);
+  }
+
+  resetValues() {
+    this.setState({
+      dishName: "",
+      dishDescription: "",
+      allergens: [],
+      price: ""
+    });
   }
 
   addDish() {
@@ -32,6 +42,7 @@ class CreateDish extends Component {
       .then(response => response.json())
       .then(json => {
         this.props.updateRestaurants();
+        this.resetValues();
       });
   }
 
@@ -50,36 +61,47 @@ class CreateDish extends Component {
 
   render() {
     return (
-      <div>
-        <h4>Legg til en ny rett:</h4>
-        <input
-          type="text"
-          placeholder="Rett navn"
-          name="dishName"
-          value={this.state.dishName}
-          onChange={this.inputHandler}
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="Beskriv retten"
-          name="dishDescription"
-          value={this.state.dishDescription}
-          onChange={this.inputHandler}
-        />
-        <br />
-        Allergener: {this.state.allergens}
-        <AllergenSelect onChange={this.allergyChange} />
-        <br />
-        <input
-          type="text"
-          placeholder="Pris"
-          name="price"
-          value={this.state.price}
-          onChange={this.inputHandler}
-        />
-        <br />
-        <input type="submit" value="Legg til rett" onClick={this.addDish} />
+      <div className="dishes">
+        <div className="dish">
+          <div className="dishInfoContainer">
+            <div>
+              <input
+                type="text"
+                placeholder="Rett navn"
+                name="dishName"
+                value={this.state.dishName}
+                onChange={this.inputHandler}
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Beskriv retten"
+                name="dishDescription"
+                value={this.state.dishDescription}
+                onChange={this.inputHandler}
+              />
+            </div>
+          </div>
+          <div className="priceContainer">
+            <input
+              type="text"
+              placeholder="Pris"
+              name="price"
+              value={this.state.price}
+              onChange={this.inputHandler}
+            />
+          </div>
+        </div>
+        <div>
+          <div className="allergens">
+            Allergener: {this.state.allergens}
+            <AllergenSelect onChange={this.allergyChange} />
+          </div>
+          <div className="editButtons">
+            <input type="submit" value="Legg til rett" onClick={this.addDish} />
+          </div>
+        </div>
       </div>
     );
   }

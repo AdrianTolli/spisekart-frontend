@@ -54,7 +54,7 @@ class CreateDish extends Component {
   }
 
   allergyChange(newAllergens) {
-    this.setState({
+    return this.setState({
       allergens: newAllergens
     });
   }
@@ -96,7 +96,10 @@ class CreateDish extends Component {
         <div>
           <div className="allergens">
             Allergener: {this.state.allergens}
-            <AllergenSelect onChange={this.allergyChange} />
+            <AllergenSelect
+              onChange={this.allergyChange}
+              selectedAllergens={[]}
+            />
           </div>
           <div className="editButtons">
             <input type="submit" value="Legg til rett" onClick={this.addDish} />

@@ -23,7 +23,7 @@ class Admin extends Component {
   fetchAllRestaurants() {
     fetch(`https://spisekart.com/api/graphql`, {
       method: "POST",
-      body: `query{restaurants{website{id}, id, dishes{allergens{description,id,name}description,id,name,price}, name}}`,
+      body: `query{restaurants{website{id, subdomain}, id, dishes{allergens{description,id,name}description,id,name,price}, name}}`,
       headers: { Authorization: `Bearer ${this.state.token}` }
     })
       .then(response => response.json())
@@ -47,7 +47,6 @@ class Admin extends Component {
     this.setState({
       selectedRestaurant: e
     });
-    console.log(e);
   }
 
   logOut() {

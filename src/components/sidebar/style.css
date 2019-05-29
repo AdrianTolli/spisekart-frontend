@@ -8,6 +8,8 @@
   color: #f0ebd8;
   overflow-x: hidden;
   padding-top: 20px;
+  position: sticky;
+  top: 0;
 }
 
 .sidebar .restaurantButton {

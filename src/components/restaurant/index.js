@@ -20,36 +20,45 @@ class Restaurant extends Component {
   }
 
   render() {
-    console.log(this.props.restaurant);
     if (!this.props.restaurant) {
       return <h1>Select a restaurant to the left</h1>;
     }
     return (
       <div className="restaurantContainer">
         <div>
-          <h1 className="restuarantTitle">{this.props.restaurant.name}</h1>
-          {this.props.restaurant.dishes.map(dish => (
-            <Dish
+          <div>
+            <h1 className="restuarantTitle">{this.props.restaurant.name}</h1>
+            {this.props.restaurant.dishes
+              .sort(
+                ({ id: previousID }, { id: currentID }) =>
+                  previousID - currentID
+              )
+              .map(dish => (
+                <Dish
+                  updateRestaurants={this.props.updateRestaurants}
+                  dish={dish}
+                  key={dish.id}
+                />
+              ))}
+          </div>
+          {this.state.addingNew ? (
+            <CreateDish
+              restaurantId={this.props.restaurant.id}
               updateRestaurants={this.props.updateRestaurants}
-              dish={dish}
-              key={dish.id}
             />
-          ))}
+          ) : (
+            <button className="sidebarButton" onClick={this.addNewDish}>
+              Legg til ny rett
+            </button>
+          )}
         </div>
-        {this.state.addingNew ? (
-          <CreateDish
-            restaurantId={this.props.restaurant.id}
+
+        <div>
+          <WebsiteCreator
+            restaurant={this.props.restaurant}
             updateRestaurants={this.props.updateRestaurants}
           />
-        ) : (
-          <button className="sidebarButton" onClick={this.addNewDish}>
-            Legg til ny rett
-          </button>
-        )}
-
-        {this.props.restaurant.website != null ? null : (
-          <WebsiteCreator restaurantId={this.props.restaurant.id} />
-        )}
+        </div>
       </div>
     );
   }

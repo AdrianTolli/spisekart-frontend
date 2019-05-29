@@ -29,7 +29,6 @@ class AllergenSelect extends Component {
   }
 
   allergenChecked(status, allergenId) {
-    console.log(status, allergenId);
     if (status) {
       const newAllergenList = this.state.selectedAllergenList.slice(0);
       newAllergenList.push(allergenId);
@@ -65,6 +64,13 @@ class AllergenSelect extends Component {
               type="checkbox"
               onChange={e =>
                 this.allergenChecked(e.target.checked, allergen.id)
+              }
+              defaultChecked={
+                this.props.selectedAllergens
+                  .map(a => a.id)
+                  .indexOf(allergen.id) >= 0
+                  ? true
+                  : false
               }
             />
             {allergen.name}

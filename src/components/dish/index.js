@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import EditableProperty from "../editableProperty";
 import "./style.css";
+import AllergenSelect from "../allergenSelect";
 
 class Dish extends Component {
   constructor(props) {
@@ -13,13 +14,14 @@ class Dish extends Component {
         description: props.dish.description,
         id: props.dish.id,
         price: props.dish.price,
-        allergens: []
+        allergens: props.dish.allergens
       },
       token: localStorage.getItem("token")
     };
     this.editHandler = this.editHandler.bind(this);
     this.onEditableChange = this.onEditableChange.bind(this);
     this.deleteHandler = this.deleteHandler.bind(this);
+    this.allergyChange = this.allergyChange.bind(this);
   }
 
   deleteHandler() {
@@ -49,6 +51,10 @@ class Dish extends Component {
           this.state.dish.name
         }", description:"${this.state.dish.description}", price:${
           this.state.dish.price
+        }, allergens:${
+          this.state.dish.allergens.length === 0
+            ? "[]"
+            : this.state.dish.allergens
         }){name,description,price,allergens{id,name}, id}}`,
         headers: { Authorization: `Bearer ${this.state.token}` }
       })
@@ -60,6 +66,14 @@ class Dish extends Component {
   onEditableChange(inputValue, field) {
     const newDish = Object.assign({}, this.state.dish);
     newDish[field] = inputValue;
+    this.setState({
+      dish: newDish
+    });
+  }
+
+  allergyChange(newAllergens) {
+    const newDish = Object.assign({}, this.state.dish);
+    newDish["allergens"] = newAllergens;
     this.setState({
       dish: newDish
     });
@@ -102,7 +116,14 @@ class Dish extends Component {
         <div>
           <div className="allergens">
             Allergener:{" "}
-            {this.props.dish.allergens.map(allergen => allergen.name)}
+            {this.state.isEditing ? (
+              <AllergenSelect
+                onChange={this.allergyChange}
+                selectedAllergens={this.state.dish.allergens}
+              />
+            ) : (
+              this.props.dish.allergens.map(allergen => allergen.name)
+            )}
           </div>
           <div className="editButtons">
             <button className="" onClick={this.editHandler}>
